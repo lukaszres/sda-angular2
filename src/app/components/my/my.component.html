@@ -1,3 +1,13 @@
-<p myDirective>
-  Style me!
-</p>
+<p>top movies:</p>
+<ul>
+  <li *ngFor="let movie of topMovies">
+    {{movie.title}} [{{movie.director}}]
+  </li>
+</ul>
+
+<p>bottom movies:</p>
+<ul>
+  <li *ngFor="let movie of bottomMovies">
+    {{movie.title}} [{{movie.director}}]
+  </li>
+</ul>
