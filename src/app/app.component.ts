@@ -6,9 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  isMyComponentVisible: boolean = true;
+  topMovies = [
+    {title: 'The Shawshank Redemption', director: 'Frank Darabont'},
+    {title: 'The Godfather', director: 'Francis Ford Coppola'},
+    {title: 'The Godfather: Part II', director: 'Francis Ford Coppola'},
+    {title: 'The Dark Knight', director: 'Christopher Nolan'},
+    {title: '12 Angry Men', director: 'Sidney Lumet'}
+  ];
 
-  toggleComponent(): void{
-    this.isMyComponentVisible = !this.isMyComponentVisible;
-  }
 }
