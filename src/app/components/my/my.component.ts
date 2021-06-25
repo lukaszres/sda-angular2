@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {MoviesService} from "../../services/movies.service";
 
 @Component({
   selector: 'my-component',
@@ -7,17 +6,13 @@ import {MoviesService} from "../../services/movies.service";
   styleUrls: ['./my.component.css']
 })
 export class MyComponent implements OnInit {
-  private service: MoviesService;
-  topMovies: any;
-  bottomMovies: any;
+  date: string = '';
 
-  constructor(service: MoviesService) {
-    this.service = service;
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.topMovies = this.service.getTopMovies();
-    this.bottomMovies = this.service.getBottomMovies();
+    this.date =  new Date().toDateString();
   }
 
 }
