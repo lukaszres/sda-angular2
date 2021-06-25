@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import {MyComponent} from "./components/my/my.component";
 import {MyDirective} from "./directives/my.directive";
 import {ModuloPipe} from "./pipes/modulo.pipe";
-import {FormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import {FormsModule} from "@angular/forms";
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'my-component',
@@ -6,17 +7,33 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./my.component.css']
 })
 export class MyComponent implements OnInit {
-
   submitted: boolean = false;
+
+  myForm!: FormGroup;
 
   constructor() {
   }
 
   ngOnInit(): void {
+    this.myForm = new FormGroup({
+      userData: new FormGroup({
+        firstName: new FormControl('', [Validators.required, Validators.minLength(2)]),
+        lastName: new FormControl(),
+      }),
+      age: new FormControl(),
+      country: new FormControl()
+    });
   }
 
-  onSubmit(form: any){
+  get f(){
+    let userData: FormGroup = this.myForm.controls.userData as FormGroup;
+    return userData.controls.firstName;
+  }
+
+  onSubmit() {
     this.submitted = true;
-    console.log(form.controls.userData.controls.username);
+    if(this.myForm.valid){
+      console.log(this.myForm);
+    }
   }
 }
