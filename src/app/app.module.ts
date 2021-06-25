@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import {MyComponent} from "./components/my/my.component";
+import {MyDirective} from "./directives/my.directive";
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyComponent
+    MyComponent,
+    MyDirective
   ],
   imports: [
     BrowserModule

@@ -7,8 +7,6 @@ import {Component, OnInit} from '@angular/core';
 })
 export class MyComponent implements OnInit {
 
-  flat = true;
-
   constructor() { }
 
   ngOnInit(): void {
