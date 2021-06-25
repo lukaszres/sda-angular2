@@ -7,6 +7,8 @@ import {Component, OnInit} from '@angular/core';
 })
 export class MyComponent implements OnInit {
 
+  borderStyle = '1px solid black';
+
   constructor() { }
 
   ngOnInit(): void {

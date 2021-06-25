@@ -1,11 +1,1 @@
-<div>
-  <span (click)="setTab(1)" class="link">Tab 1</span>
-  <span (click)="setTab(2)" class="link">Tab 2</span>
-  <span (click)="setTab(3)" class="link">Tab 3</span>
-</div>
-<div [ngSwitch]="tabNumber">
-  <my-component *ngSwitchCase="1">Tab content 1</my-component>
-  <my-component *ngSwitchCase="2">Tab content 2</my-component>
-  <my-component *ngSwitchCase="3">Tab content 3</my-component>
-  <my-component *ngSwitchDefault>Select tab</my-component>
-</div>
+<my-component></my-component>

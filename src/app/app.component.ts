@@ -7,10 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  tabNumber: number = 0;
 
-
-  setTab(tabNumber: number): void{
-    this.tabNumber = tabNumber;
-  }
 }
