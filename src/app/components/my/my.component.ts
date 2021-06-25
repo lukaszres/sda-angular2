@@ -13,4 +13,8 @@ export class MyComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(form: any){
+    console.log(form.value);
+  }
+
 }
