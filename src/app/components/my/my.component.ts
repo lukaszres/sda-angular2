@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
+import {UserData} from "../../models/userData";
 
 @Component({
   selector: 'my-component',
@@ -7,33 +8,21 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./my.component.css']
 })
 export class MyComponent implements OnInit {
-  submitted: boolean = false;
+  http: HttpClient;
+  object!: UserData;
 
-  myForm!: FormGroup;
-
-  constructor() {
+  constructor(httpClient: HttpClient) {
+    this.http = httpClient;
   }
 
   ngOnInit(): void {
-    this.myForm = new FormGroup({
-      userData: new FormGroup({
-        firstName: new FormControl('', [Validators.required, Validators.minLength(2)]),
-        lastName: new FormControl(),
-      }),
-      age: new FormControl(),
-      country: new FormControl()
+    this.getFromServer();
+  }
+
+  getFromServer(): void {
+    this.http.get('http://jsonplaceholder.typicode.com/posts/1').subscribe(value => {
+      this.object = value as UserData;
+      console.log(value);
     });
-  }
-
-  get f(){
-    let userData: FormGroup = this.myForm.controls.userData as FormGroup;
-    return userData.controls.firstName;
-  }
-
-  onSubmit() {
-    this.submitted = true;
-    if(this.myForm.valid){
-      console.log(this.myForm);
-    }
   }
 }
