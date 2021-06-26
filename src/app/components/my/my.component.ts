@@ -28,10 +28,7 @@ export class MyComponent implements OnInit {
       .subscribe(
         (data) => {
           let user: UserData = data as UserData;
-          this.signupForm.controls.id.patchValue(user.id);
-          this.signupForm.controls.userId.patchValue(user.userId);
-          this.signupForm.controls.title.patchValue(user.title);
-          this.signupForm.controls.body.patchValue(user.body);
+          this.signupForm.patchValue(user)
         }
       );
   }
