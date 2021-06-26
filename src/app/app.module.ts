@@ -12,11 +12,13 @@ import {HomeComponent} from "./components/home/home.component";
 import { LoginComponent } from './components/login/login.component';
 import { NewsComponent } from './components/news/news.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import {APIResolver} from "./resolvers/APIResolver";
 
 const appRotes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    resolve: {message: APIResolver}
   },
   {
     path: 'home',
@@ -55,7 +57,7 @@ const appRotes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRotes)
   ],
-  providers: [],
+  providers: [APIResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
