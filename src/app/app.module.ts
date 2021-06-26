@@ -13,6 +13,8 @@ import { LoginComponent } from './components/login/login.component';
 import { NewsComponent } from './components/news/news.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import {APIResolver} from "./resolvers/APIResolver";
+import {AuthGuard} from "./routerGuards/AuthGuard";
+import {AuthService} from "./services/auth.service";
 
 const appRotes: Routes = [
   {
@@ -27,7 +29,8 @@ const appRotes: Routes = [
   },
   {
     path: 'news/:newsId',
-    component: NewsComponent
+    component: NewsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '',
@@ -57,7 +60,9 @@ const appRotes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRotes)
   ],
-  providers: [APIResolver],
+  providers: [APIResolver,
+    AuthGuard,
+    AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
