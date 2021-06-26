@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {UserData} from "../../models/userData";
 
 @Component({
@@ -16,15 +16,11 @@ export class MyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.updateOnServer();
+    this.deleteOnServer();
   }
 
-  updateOnServer(): void {
-    const httpHeader = {
-      headers: new HttpHeaders({'Content-type': 'application/json ; charset=UTF-8'})
-    };
-    const body: UserData = {title: 'foo', body: 'bar', userId: 1} as UserData;
-    this.http.put('http://jsonplaceholder.typicode.com/posts/1', body, httpHeader)
+  deleteOnServer(): void {
+    this.http.delete('http://jsonplaceholder.typicode.com/posts/1')
       .subscribe(response => {
         this.object = response as UserData;
         console.log(response);
